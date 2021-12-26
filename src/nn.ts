@@ -123,6 +123,10 @@ export class Activations {
     output: x => Math.max(0, x),
     der: x => x <= 0 ? 0 : 1
   };
+  public static SWISH: ActivationFunction = {
+    output: x => x / (1 + Math.exp(-x)),
+    der: x => (Math.exp(-x) * (x + 1) + 1) / (1 + Math.exp(-x))**2
+  };
   public static SIGMOID: ActivationFunction = {
     output: x => 1 / (1 + Math.exp(-x)),
     der: x => {
